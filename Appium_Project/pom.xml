@@ -1,0 +1,100 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>APID</groupId>
+  <artifactId>APGID</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+
+	<name>APID</name>
+<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<scm>
+		<connection>
+scm:git:ssh://git@github.com/appium/java-client.git
+scm:git:https://github.com/cbeust/testng.git</connection>
+
+		<developerConnection>
+scm:git:ssh://git@github.com/appium/java-client.git
+scm:git:git@github.com:cbeust/testng.git
+</developerConnection>
+		<url>https://github.com/appium/java-client
+http://github.com/cbeust/testng</url>
+
+
+	</scm>
+	<dependencies>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>3.9.1</version>
+			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>*</artifactId>
+					<groupId>com.google.code.gson</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>htmlunit-driver</artifactId>
+					<groupId>*</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>*</artifactId>
+					<groupId>net.sourceforge.htmlunit</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.2</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.5</version>
+			<scope>compile</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.13.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+		<groupId>io.appium</groupId>
+    <artifactId>java-client</artifactId>
+    </dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20171018</version>
+		</dependency>
+		<dependency>
+			<groupId>com.jayway.restassured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>2.9.0</version>
+			<scope>test</scope>
+		</dependency>
+
+
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>io.appium</groupId>
+				<artifactId>java-client</artifactId>
+				<version>5.0.4</version>
+			</dependency>
+		</dependencies>
+		
+		
+	</dependencyManagement>
+	
+	</project>
