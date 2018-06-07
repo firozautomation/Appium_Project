@@ -64,7 +64,6 @@ http://github.com/cbeust/testng</url>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
 			<version>6.13.1</version>
-			<scope>test</scope>
 		</dependency>
 		<dependency>
 		<groupId>io.appium</groupId>

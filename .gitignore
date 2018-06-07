@@ -14,3 +14,4 @@ Appium_Project/test-output/junitreports/TEST-lib.iOS_FSA.testCase.FSATest_1.xml
 Appium_Project/test-output/testng-failed.xml
 *.css
 Appium_Project/test-output/testng-results.xml
+Appium_Project/.settings/org.eclipse.m2e.core.prefs
