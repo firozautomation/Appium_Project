@@ -44,7 +44,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import ilb.OS_FSA.utility.ScreenshotUtility;
+import ilb.iOS_FSA.utility.ScreenshotUtility;
 
 @Listeners({ ScreenshotUtility.class })
 

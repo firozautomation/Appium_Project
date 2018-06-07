@@ -11,8 +11,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import ilb.OS_FSA.utility.ApiServices;
-import ilb.OS_FSA.utility.ScreenshotUtility;
+import ilb.iOS_FSA.utility.ApiServices;
+import ilb.iOS_FSA.utility.ScreenshotUtility;
 import lib.iOS_FSA.initiator.Initiator;
 import lib.iOS_FSA.objectRepo.Pg_calendar;
 import lib.iOS_FSA.objectRepo.Pg_explore;
