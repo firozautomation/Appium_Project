@@ -3,3 +3,14 @@ Appium_Project/.classpath
 Appium_Project/.settings/org.eclipse.core.resources.prefs
 Appium_Project/.settings/org.eclipse.jdt.core.prefs
 Appium_Project/.project
+*.png
+*.gif
+*.html
+Appium_Project/test-output/Default suite/Default test.xml
+Appium_Project/test-output/Default suite/testng-failed.xml
+*.js
+Appium_Project/test-output/junitreports/TEST-lib.iOS_FSA.testCase.FSATest_1.xml
+*.properties
+Appium_Project/test-output/testng-failed.xml
+*.css
+Appium_Project/test-output/testng-results.xml

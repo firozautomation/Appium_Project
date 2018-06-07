@@ -30,7 +30,7 @@ public class FSATest_1 {
 	Pg_calendar Pg_calendar = null;
 	Pg_explore Pg_explore = null;
 	Pg_tools Pg_tools = null;
-	String appiumResultCommonPath = "/auto/appium/Appium_Project/src/test/java/lib/iOS_FSA/workBench/appiumResultCommon.txt";
+	String appiumResultCommonPath = "./src/test/java/lib/iOS_FSA/workBench/appiumResultCommon.txt";
 
 	@SuppressWarnings("rawtypes")
 	@BeforeMethod
