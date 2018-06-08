@@ -432,7 +432,7 @@ public class Wrapper {
 
 			System.out.println("Executing Sahi scripts please wait for completion !");
 			// create a temp file as a shell or bat for execution
-			File file = new File("/auto/appium/Appium_Project/FSAAID/src/test/java/FSAID/FSAAID/workBench/sahiExecutable.sh");
+			File file = new File("./src/test/java/lib/iOS_FSA/workBench/sahiExecutable.sh");
 
 			// Create the file
 			if (file.createNewFile()) {
@@ -471,7 +471,7 @@ public class Wrapper {
 
 		// Read the recorded true or false from the resultCommon.txt file
 		try {
-			resultCommon = this.readTextFile("/auto/appium/Appium_Project/FSAAID/src/test/java/FSAID/FSAAID/workBench/resultCommon.txt");
+			resultCommon = this.readTextFile("./src/test/java/lib/iOS_FSA/workBench/resultCommon.txt");
 
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block

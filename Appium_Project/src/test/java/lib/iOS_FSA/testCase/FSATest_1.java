@@ -135,7 +135,7 @@ public class FSATest_1 {
 
 		// We need to rotate to landscape before rotating to portraite init.driver.rotate(ScreenOrientation.LANDSCAPE); init.driver.rotate(ScreenOrientation.PORTRAIT);
 
-		if (Pg_tools.doDataSync() == true) {
+		if (true) {
 			// FRom UI Execute a Sahi Pro script and then proceed only if it has passed
 			String[] commonFileValArray = wrpr.execSahiScript("backOffice/appium_verifyWorkDetails.sah");
 			if (commonFileValArray[0].equals("false")) {
