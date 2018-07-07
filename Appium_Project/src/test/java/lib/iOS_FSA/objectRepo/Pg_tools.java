@@ -12,6 +12,7 @@ public class Pg_tools {
 	public String btn_syncDataNow = "//*[text() = 'Sync Data Now']";
 	public String btn_startSync = "//*[text() = 'Start Sync']";
 	public String txt_syncSuccess = "//*[text() = 'Success']";
+	public String txt_refreshingView ="//*[text()='Refreshing view']";
 	
 	public boolean doDataSync() {
 		
@@ -21,7 +22,8 @@ public class Pg_tools {
 
 
 		try {
-			if (wrpr.FetchElementDetails(txt_syncSuccess) != null) {
+			
+			if (wrpr.fetchElementWrapper(txt_refreshingView).waitforElement(30) != false) {
 				System.out.println("Sync completed successfully");
 				return true;
 			}else {

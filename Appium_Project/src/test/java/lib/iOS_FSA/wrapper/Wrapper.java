@@ -27,18 +27,23 @@ import org.openqa.selenium.support.FindBy;
  * 
  * @author yadavthyagaraj
  *
- * @description The wrapper class contains all the methods and relevant complexities involved in fetching and performing actions on the elements
+ * @description The wrapper class contains all the methods and relevant
+ *              complexities involved in fetching and performing actions on the
+ *              elements
  *
  *
  */
 public class Wrapper {
 	Initiator init = new Initiator();
-	TouchAction touch = null ;
+	TouchAction touch = null;
 	Integer xOffset = 15;
 	Integer yOffset = 18;
 
 	/**
-	 * Fetches the init.elements by handling all the DOM load dinit.elays and location not found issues and sets the global init.elemental properties for init.el,init.xyPoint = init.el.getLocation(); init.elId , init.elClass, init.elValue, init.elText, init.elTagname,
+	 * Fetches the init.elements by handling all the DOM load dinit.elays and
+	 * location not found issues and sets the global init.elemental properties for
+	 * init.el,init.xyPoint = init.el.getLocation(); init.elId , init.elClass,
+	 * init.elValue, init.elText, init.elTagname,
 	 * 
 	 * @param xpathStr
 	 * @return
@@ -86,7 +91,8 @@ public class Wrapper {
 					} else if (init.xyPoint.getY() == 0) {
 						System.out.println("waiting... for element " + init.el);
 
-						// SOmetimes the y coordinates are hidden under the screen space so tap on it and wait for it to generate a coordinate
+						// SOmetimes the y coordinates are hidden under the screen space so tap on it
+						// and wait for it to generate a coordinate
 						Thread.sleep(1000);
 						init.xyPoint = init.el.getLocation();
 					}
@@ -103,7 +109,9 @@ public class Wrapper {
 
 			}
 
-			System.out.println("Fetching element Details " + init.el + " Location === " + init.xyPoint + " id = " + init.elId + " class = " + init.elClass + " value = " + init.elValue + " Tagname = " + init.elTagname + " Text = " + init.elText);
+			System.out.println("Fetching element Details " + init.el + " Location === " + init.xyPoint + " id = "
+					+ init.elId + " class = " + init.elClass + " value = " + init.elValue + " Tagname = "
+					+ init.elTagname + " Text = " + init.elText);
 
 		} catch (Exception e) {
 			System.out.println("DOM exception " + e);
@@ -112,8 +120,10 @@ public class Wrapper {
 		return init.el;
 
 	}
+
 	/**
-	 * Fetches the element details 
+	 * Fetches the element details
+	 * 
 	 * @param xpathStr
 	 */
 	public Wrapper fetchElementWrapper(String xpathStr) {
@@ -124,15 +134,17 @@ public class Wrapper {
 	}
 
 	/**
-	 * Tap on element
-	 * Chain with fetcheElementWrapper();
+	 * Tap on element Chain with fetcheElementWrapper();
+	 * 
 	 * @return
 	 */
 	public Wrapper tap() {
 		touch = new TouchAction(init.driver);
 
 		System.out.println("Acting on location Tap " + init.el);
-		System.out.println("Fetching element Details " + init.el + " Location === " + init.xyPoint + " id = " + init.elId + " class = " + init.elClass + " value = " + init.elValue + " Tagname = " + init.elTagname + " Text = " + init.elText);
+		System.out.println("Fetching element Details " + init.el + " Location === " + init.xyPoint + " id = "
+				+ init.elId + " class = " + init.elClass + " value = " + init.elValue + " Tagname = " + init.elTagname
+				+ " Text = " + init.elText);
 
 		touch.tap(init.xyPoint.getX() + xOffset, init.xyPoint.getY() + yOffset).release().perform();
 		return this;
@@ -140,8 +152,8 @@ public class Wrapper {
 	}
 
 	/**
-	 * longPress on element
-	 * Chain with fetcheElementWrapper();
+	 * longPress on element Chain with fetcheElementWrapper();
+	 * 
 	 * @return
 	 */
 	public Wrapper longPress() {
@@ -151,9 +163,10 @@ public class Wrapper {
 		return this;
 
 	}
+
 	/**
-	 * click on element
-	 * Chain with fetcheElementWrapper();
+	 * click on element Chain with fetcheElementWrapper();
+	 * 
 	 * @return
 	 */
 	public Wrapper click() {
@@ -163,9 +176,10 @@ public class Wrapper {
 		return this;
 
 	}
+
 	/**
-	 * clickId on element
-	 * Chain with fetcheElementWrapper();
+	 * clickId on element Chain with fetcheElementWrapper();
+	 * 
 	 * @return
 	 */
 	public Wrapper clickId() {
@@ -176,10 +190,10 @@ public class Wrapper {
 		return this;
 
 	}
+
 	/**
-	 * clickXpath
-	 *  on element
-	 * Chain with fetcheElementWrapper();
+	 * clickXpath on element Chain with fetcheElementWrapper();
+	 * 
 	 * @return
 	 */
 	public Wrapper clickXpath() {
@@ -191,58 +205,65 @@ public class Wrapper {
 
 	}
 
-	
-//	public void touchWraper(String xpathStr, String typeOfAction) {
-//
-//		init.el = FetchElementDetails(xpathStr);
-//		TouchAction touch = new TouchAction(init.driver);
-//		Integer xOffset = 15;
-//		Integer yOffset = 18;
-//
-//		if (typeOfAction.toLowerCase().equals("tap")) {
-//			System.out.println("Acting on location Tap " + init.el);
-//
-//			touch.tap(init.xyPoint.getX() + xOffset, init.xyPoint.getY() + yOffset).release().perform();
-//
-//		} else if (typeOfAction.toLowerCase().equals("longpress")) {
-//			System.out.println("Acting on location longpress " + init.el);
-//
-//			touch.longPress(init.xyPoint.getX() + yOffset, init.xyPoint.getY() + yOffset).release().perform();
-//
-//			// touch.moveTo(init.xyPoint.getX(),init.xyPoint.getY()).rinit.elease().perform();
-//		} else if (typeOfAction.toLowerCase().equals("scroll")) {
-//			System.out.println("Acting on location scroll " + init.el);
-//
-//			touch.press(init.xyPoint.getX() + yOffset, init.xyPoint.getY() + yOffset).moveTo(init.xyPoint.getX() + yOffset, init.xyPoint.getY() + yOffset + 50).release().perform();
-//			// touch.moveTo(init.xyPoint.getX(),init.xyPoint.getY()).rinit.elease().perform();
-//		}
-//
-//		else if (typeOfAction.toLowerCase().equals("js")) {
-//
-//			// JavascriptExecutor js = (JavascriptExecutor) init.driver;
-//			// HashMap<String, String> tapObject = new HashMap<String, String>();
-//			// tapObject.put("x", String.valueOf(init.el.getSize().getWidth() / 2));
-//			// tapObject.put("y", String.valueOf(init.el.getSize().getHeight() / 2));
-//			// tapObject.put("init.element", ((RemoteWebinit.element) init.el).getId());
-//			// js.executeScript("mobile:tap", tapObject);
-//		} else if (typeOfAction.toLowerCase().equals("click")) {
-//			System.out.println("Acting on init.element click " + init.el);
-//
-//			init.el.click();
-//
-//		} else if (typeOfAction.toLowerCase().equals("clickid")) {
-//			System.out.println("Acting on Id click " + init.driver.findElement(By.id(init.elId)));
-//
-//			init.driver.findElement(By.id(init.elId)).click();
-//
-//		} else if (typeOfAction.toLowerCase().equals("clickxpath")) {
-//			System.out.println("Acting on xpath click " + init.driver.findElement(By.xpath(xpathStr)));
-//
-//			init.driver.findElement(By.xpath(xpathStr)).click();
-//
-//		}
-//
-//	}
+	// public void touchWraper(String xpathStr, String typeOfAction) {
+	//
+	// init.el = FetchElementDetails(xpathStr);
+	// TouchAction touch = new TouchAction(init.driver);
+	// Integer xOffset = 15;
+	// Integer yOffset = 18;
+	//
+	// if (typeOfAction.toLowerCase().equals("tap")) {
+	// System.out.println("Acting on location Tap " + init.el);
+	//
+	// touch.tap(init.xyPoint.getX() + xOffset, init.xyPoint.getY() +
+	// yOffset).release().perform();
+	//
+	// } else if (typeOfAction.toLowerCase().equals("longpress")) {
+	// System.out.println("Acting on location longpress " + init.el);
+	//
+	// touch.longPress(init.xyPoint.getX() + yOffset, init.xyPoint.getY() +
+	// yOffset).release().perform();
+	//
+	// //
+	// touch.moveTo(init.xyPoint.getX(),init.xyPoint.getY()).rinit.elease().perform();
+	// } else if (typeOfAction.toLowerCase().equals("scroll")) {
+	// System.out.println("Acting on location scroll " + init.el);
+	//
+	// touch.press(init.xyPoint.getX() + yOffset, init.xyPoint.getY() +
+	// yOffset).moveTo(init.xyPoint.getX() + yOffset, init.xyPoint.getY() + yOffset
+	// + 50).release().perform();
+	// //
+	// touch.moveTo(init.xyPoint.getX(),init.xyPoint.getY()).rinit.elease().perform();
+	// }
+	//
+	// else if (typeOfAction.toLowerCase().equals("js")) {
+	//
+	// // JavascriptExecutor js = (JavascriptExecutor) init.driver;
+	// // HashMap<String, String> tapObject = new HashMap<String, String>();
+	// // tapObject.put("x", String.valueOf(init.el.getSize().getWidth() / 2));
+	// // tapObject.put("y", String.valueOf(init.el.getSize().getHeight() / 2));
+	// // tapObject.put("init.element", ((RemoteWebinit.element) init.el).getId());
+	// // js.executeScript("mobile:tap", tapObject);
+	// } else if (typeOfAction.toLowerCase().equals("click")) {
+	// System.out.println("Acting on init.element click " + init.el);
+	//
+	// init.el.click();
+	//
+	// } else if (typeOfAction.toLowerCase().equals("clickid")) {
+	// System.out.println("Acting on Id click " +
+	// init.driver.findElement(By.id(init.elId)));
+	//
+	// init.driver.findElement(By.id(init.elId)).click();
+	//
+	// } else if (typeOfAction.toLowerCase().equals("clickxpath")) {
+	// System.out.println("Acting on xpath click " +
+	// init.driver.findElement(By.xpath(xpathStr)));
+	//
+	// init.driver.findElement(By.xpath(xpathStr)).click();
+	//
+	// }
+	//
+	// }
 
 	public String getDateTime(int year, int month, int day) {
 		Calendar cal = Calendar.getInstance();
@@ -263,7 +284,8 @@ public class Wrapper {
 		init.el.click();
 		init.driver.context(init.nativeApp);
 
-		List<IOSElement> pickerField = (List<IOSElement>) init.driver.findElements(By.xpath("//XCUIElementTypePickerWheel"));
+		List<IOSElement> pickerField = (List<IOSElement>) init.driver
+				.findElements(By.xpath("//XCUIElementTypePickerWheel"));
 		pickerField.get(0).sendKeys(value);
 		init.driver.findElement(By.name("Done")).click();
 		init.driver.context(init.webApp);
@@ -311,7 +333,8 @@ public class Wrapper {
 			// do nothing
 			// TO set future dates
 
-			// The return value is in string for mat 12 ,0 cliok, so we need to split it to get the integer value which later needs to be parsed to int
+			// The return value is in string for mat 12 ,0 cliok, so we need to split it to
+			// get the integer value which later needs to be parsed to int
 			String[] SplitTime = wheels.get(1).getAttribute("value").split(" ");
 			if (SplitTime[0].equals("12")) {
 				wheels.get(1).sendKeys("1");
@@ -335,7 +358,8 @@ public class Wrapper {
 
 			try {
 
-				// The return value is in string for mat 12 ,0 cliok, so we need to split it to get the integer value which later needs to be parsed to int
+				// The return value is in string for mat 12 ,0 cliok, so we need to split it to
+				// get the integer value which later needs to be parsed to int
 				String[] SplitTime = wheels.get(1).getAttribute("value").split(" ");
 				if (SplitTime[0].equals("12")) {
 					wheels.get(1).sendKeys("1");
@@ -347,7 +371,8 @@ public class Wrapper {
 
 				wheels.get(0).sendKeys("Wed 16 May");
 
-				// driver.findElement(By.xpath("//*[. = 'End Date and Time']//*[@class = 'x-input-el']")).sendKeys("30/07/2019 4:45 PM");
+				// driver.findElement(By.xpath("//*[. = 'End Date and Time']//*[@class =
+				// 'x-input-el']")).sendKeys("30/07/2019 4:45 PM");
 				// wheels.get(1).sendKeys("9");
 				wheels.get(2).sendKeys("55");
 
@@ -421,7 +446,10 @@ public class Wrapper {
 	}
 
 	/**
-	 * Execute a Sahi script. The sahi_project repository has to be downloaded/cloned first before calling the scripts Will return a true or false statement from the resultCommon.txt file and user may determine weather to proceed or stop the executions
+	 * Execute a Sahi script. The sahi_project repository has to be
+	 * downloaded/cloned first before calling the scripts Will return a true or
+	 * false statement from the resultCommon.txt file and user may determine weather
+	 * to proceed or stop the executions
 	 * 
 	 * @param sahiScriptFilePath
 	 * @throws IOException
@@ -445,12 +473,15 @@ public class Wrapper {
 			FileWriter writer = new FileWriter(file);
 			writer.write("#!/bin/bash \n");
 			writer.write("cd /auto/sahi_pro/userdata/bin \n");
-			writer.write("./testrunner.sh /auto/sahi_pro/userdata/scripts/Sahi_Project_Lightning/svmx/test_lab/test_cases/" + sahiScriptFilePath + " https://test.salesforce.com chrome");
+			writer.write(
+					"./testrunner.sh /auto/sahi_pro/userdata/scripts/Sahi_Project_Lightning/svmx/test_lab/test_cases/"
+							+ sahiScriptFilePath + " https://test.salesforce.com chrome");
 			writer.close();
 			// make it executable
 			Runtime.getRuntime().exec("chmod u+x " + file);
 
-			// File fileExec = new File("/auto/appium/Appium_Project/FSAAID/src/test/java/FSAID/FSAAID/testCase/testFile1.sh");
+			// File fileExec = new
+			// File("/auto/appium/Appium_Project/FSAAID/src/test/java/FSAID/FSAAID/testCase/testFile1.sh");
 			//// This will execute the scripts asynchronously
 			// Runtime.getRuntime().exec(new String[]{"/bin/sh" ,"-c", file.getPath()});
 
@@ -535,8 +566,33 @@ public class Wrapper {
 		System.out.println("resultCommon.txt file Write as = " + data);
 
 	}
-	
-	
 
+	/**
+	 * 
+	 * @param time
+	 * @return
+	 */
+
+	public boolean waitforElement(int time) {
+		int lElapsedTime = 0;
+		boolean returnVal = false;
+		while (lElapsedTime <= time) {
+			try {
+				if (init.el.isDisplayed()) {
+					// do nothing wait
+					Thread.sleep(1000);
+				} else {
+					returnVal = true;
+					break;
+
+				}
+			} catch (Exception ex) {
+				returnVal = false;
+			}
+			lElapsedTime++;
+		}
+		return returnVal;
+
+	}
 
 }

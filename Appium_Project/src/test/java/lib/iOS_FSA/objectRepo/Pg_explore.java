@@ -1,6 +1,7 @@
 package lib.iOS_FSA.objectRepo;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 import lib.iOS_FSA.initiator.Initiator;
 import lib.iOS_FSA.wrapper.*;
@@ -8,7 +9,7 @@ import lib.iOS_FSA.wrapper.*;
 public class Pg_explore {
 
 	Initiator init = new Initiator();
-	static Wrapper wrpr = new Wrapper();
+	 Wrapper wrpr = new Wrapper();
 	
 //	@FindBy(xpath="//android.view.View[@content-desc='Explore']")
 //	private String btn_exploreFact = "//*[text() = 'Explore']";
@@ -16,6 +17,7 @@ public class Pg_explore {
 //	{
 //		return (WebElement) wrpr.fetchElementWrapper(btn_exploreFact);
 //	}
+	
 
 	public  String btn_explore = "//*[text() = 'Explore']";
 	public  String txt_search = "//input[@placeholder='Search']";
