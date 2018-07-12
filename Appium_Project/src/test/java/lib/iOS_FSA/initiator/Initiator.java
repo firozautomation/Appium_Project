@@ -85,7 +85,7 @@ public class Initiator {
 			e.printStackTrace();
 		}
 		// Setting default timeouts to avoid page load issues
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		// already initialized to make wait public so not calling as "WebDriver
 		wait = new WebDriverWait(driver, 30000);
 		// wait = new Webdriver();"

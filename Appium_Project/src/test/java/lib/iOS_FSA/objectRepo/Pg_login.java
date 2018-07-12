@@ -5,12 +5,12 @@ import java.io.IOException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import lib.iOS_FSA.common.Common;
 import lib.iOS_FSA.initiator.Initiator;
-import lib.iOS_FSA.wrapper.Wrapper;
 
 public class Pg_login{
 
-	 Wrapper wrpr = new Wrapper();
+	 Common wrpr = new Common();
 	 Initiator init = new Initiator();
 
 	public  String btn_signin = "svmx_splash_signin";

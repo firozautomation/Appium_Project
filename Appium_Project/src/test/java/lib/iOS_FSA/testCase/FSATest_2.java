@@ -13,18 +13,18 @@ import org.testng.annotations.Test;
 
 import ilb.iOS_FSA.utility.ApiServices;
 import ilb.iOS_FSA.utility.ScreenshotUtility;
+import lib.iOS_FSA.common.Common;
 import lib.iOS_FSA.initiator.Initiator;
 import lib.iOS_FSA.objectRepo.Pg_calendar;
 import lib.iOS_FSA.objectRepo.Pg_explore;
 import lib.iOS_FSA.objectRepo.Pg_login;
 import lib.iOS_FSA.objectRepo.Pg_tools;
-import lib.iOS_FSA.wrapper.Wrapper;
 
 //@Listeners({ ScreenshotUtility.class })
 
 public class FSATest_2 {
 	Initiator init = null;
-	Wrapper wrpr = null;
+	Common wrpr = null;
 	String woNum = null;
 	Pg_login Pg_login = null;
 	Pg_calendar Pg_calendar = null;
@@ -35,7 +35,7 @@ public class FSATest_2 {
 	@SuppressWarnings("rawtypes")
 	@BeforeMethod
 	public void setup() throws IOException {
-		wrpr = new Wrapper();
+		wrpr = new Common();
 		init = new Initiator();
 		Pg_login = new Pg_login();
 		Pg_calendar = new Pg_calendar();
@@ -72,66 +72,66 @@ public class FSATest_2 {
 
 		Pg_login.login(init.un, init.pwd);
 		
-		wrpr.fetchElementWrapper(Pg_explore.btn_explore).tap();
-		wrpr.fetchElementWrapper(Pg_calendar.btn_calendar).tap();
-		wrpr.fetchElementWrapper(Pg_tools.btn_tools).tap();
+		wrpr.fetchElement(Pg_explore.btn_explore).tap();
+		wrpr.fetchElement(Pg_calendar.btn_calendar).tap();
+		wrpr.fetchElement(Pg_tools.btn_tools).tap();
 		
-		wrpr.fetchElementWrapper(Pg_explore.btn_explore).clickXpath();
-		wrpr.fetchElementWrapper(Pg_calendar.btn_calendar).longPress();
-		wrpr.fetchElementWrapper(Pg_tools.btn_tools).longPress();
+		wrpr.fetchElement(Pg_explore.btn_explore).clickXpath();
+		wrpr.fetchElement(Pg_calendar.btn_calendar).longPress();
+		wrpr.fetchElement(Pg_tools.btn_tools).longPress();
 
 
 
 		Pg_tools.doDataSync();
-		wrpr.fetchElementWrapper(Pg_calendar.btn_calendar).tap();
+		wrpr.fetchElement(Pg_calendar.btn_calendar).tap();
 		wrpr.takeScreenShotWrapper();
 		Pg_explore.createEvent("Work Order Search 2", woNum, "default", "default", "new event");
 		
-		wrpr.fetchElementWrapper(Pg_calendar.btn_calendar).tap();
+		wrpr.fetchElement(Pg_calendar.btn_calendar).tap();
 
-		wrpr.fetchElementWrapper("//div[contains(.,'" + woNum + "')]/div[@class='sfmevent-location-container']").tap();
+		wrpr.fetchElement("//div[contains(.,'" + woNum + "')]/div[@class='sfmevent-location-container']").tap();
 
-		wrpr.fetchElementWrapper(Pg_explore.btn_actions).tap();
-		wrpr.fetchElementWrapper(Pg_explore.btn_recordTM).tap();
-		wrpr.fetchElementWrapper(Pg_explore.btn_parts_add).tap();
+		wrpr.fetchElement(Pg_explore.btn_actions).tap();
+		wrpr.fetchElement(Pg_explore.btn_recordTM).tap();
+		wrpr.fetchElement(Pg_explore.btn_parts_add).tap();
 		wrpr.setSelectedWrapper(Pg_explore.txt_picker_search, "Starts With");
 
 		// wrpr.fetchElementWrapper("//*[.='Include Online']/..//*[@type='checkbox']/..").tap();
-		wrpr.fetchElementWrapper(Pg_explore.btn_picklist_serach).sendKeyWrapper( "BlueLake Men Watch");
-		wrpr.fetchElementWrapper(Pg_explore.btn_search).tap();
-		wrpr.fetchElementWrapper("//*[.='BlueLake Men Watch'][@class = 'x-gridcell']").tap();
+		wrpr.fetchElement(Pg_explore.btn_picklist_serach).sendKeyWrapper( "BlueLake Men Watch");
+		wrpr.fetchElement(Pg_explore.btn_search).tap();
+		wrpr.fetchElement("//*[.='BlueLake Men Watch'][@class = 'x-gridcell']").tap();
 
-		wrpr.fetchElementWrapper(Pg_explore.btn_picklist_serach).sendKeyWrapper("GE Product");
-		wrpr.fetchElementWrapper(Pg_explore.btn_search).tap();
-		wrpr.fetchElementWrapper("//*[.='GE Product'][@class = 'x-gridcell']").tap();
-		wrpr.fetchElementWrapper(Pg_explore.btn_picklist_addSelected).tap();
+		wrpr.fetchElement(Pg_explore.btn_picklist_serach).sendKeyWrapper("GE Product");
+		wrpr.fetchElement(Pg_explore.btn_search).tap();
+		wrpr.fetchElement("//*[.='GE Product'][@class = 'x-gridcell']").tap();
+		wrpr.fetchElement(Pg_explore.btn_picklist_addSelected).tap();
 
-		wrpr.fetchElementWrapper(Pg_explore.btn_travel_add).tap();
+		wrpr.fetchElement(Pg_explore.btn_travel_add).tap();
 		wrpr.setDateWrapper(Pg_explore.txt_startDateAndTime, "futureStart");
 		wrpr.setDateWrapper(Pg_explore.txt_endDateAndTime, "futureEnd");
-		wrpr.fetchElementWrapper(Pg_explore.txt_lineQty).sendKeyWrapper( "100");
-		wrpr.fetchElementWrapper(Pg_explore.txt_linePricePerUnit).sendKeyWrapper( "20");
-		wrpr.fetchElementWrapper(Pg_explore.btn_done).tap();
+		wrpr.fetchElement(Pg_explore.txt_lineQty).sendKeyWrapper( "100");
+		wrpr.fetchElement(Pg_explore.txt_linePricePerUnit).sendKeyWrapper( "20");
+		wrpr.fetchElement(Pg_explore.btn_done).tap();
 
-		wrpr.fetchElementWrapper(Pg_explore.btn_labour_add).tap();
-		wrpr.fetchElementWrapper("//*[. = 'Part']//*[@class = 'x-input-el']").tap();
-		wrpr.fetchElementWrapper(Pg_explore.btn_picklist_serach).sendKeyWrapper("BlueLake Men Watch");
-		wrpr.fetchElementWrapper(Pg_explore.btn_search).tap();
-		wrpr.fetchElementWrapper("//*[.='BlueLake Men Watch'][@class = 'x-gridcell']").tap();
+		wrpr.fetchElement(Pg_explore.btn_labour_add).tap();
+		wrpr.fetchElement("//*[. = 'Part']//*[@class = 'x-input-el']").tap();
+		wrpr.fetchElement(Pg_explore.btn_picklist_serach).sendKeyWrapper("BlueLake Men Watch");
+		wrpr.fetchElement(Pg_explore.btn_search).tap();
+		wrpr.fetchElement("//*[.='BlueLake Men Watch'][@class = 'x-gridcell']").tap();
 
 		wrpr.setSelectedWrapper(Pg_explore.btn_activityType, "Cleanup");
 		wrpr.setDateWrapper(Pg_explore.txt_startDateAndTime, "futureStart");
 		wrpr.setDateWrapper(Pg_explore.txt_endDateAndTime, "futureEnd");
-		wrpr.fetchElementWrapper(Pg_explore.txt_lineQty).sendKeyWrapper( "100");
-		wrpr.fetchElementWrapper(Pg_explore.txt_linePricePerUnit).sendKeyWrapper( "20");
+		wrpr.fetchElement(Pg_explore.txt_lineQty).sendKeyWrapper( "100");
+		wrpr.fetchElement(Pg_explore.txt_linePricePerUnit).sendKeyWrapper( "20");
 
-		wrpr.fetchElementWrapper(Pg_explore.btn_done).tap();
+		wrpr.fetchElement(Pg_explore.btn_done).tap();
 
-		wrpr.fetchElementWrapper(Pg_explore.btn_save).tap(); // wrpr.fetchElementWrapper(Pg_explore.btn_yes).tap();
+		wrpr.fetchElement(Pg_explore.btn_save).tap(); // wrpr.fetchElementWrapper(Pg_explore.btn_yes).tap();
 
-		wrpr.fetchElementWrapper(Pg_explore.btn_actions).tap();
+		wrpr.fetchElement(Pg_explore.btn_actions).tap();
 
-		wrpr.fetchElementWrapper(Pg_explore.btn_printServiceReport).tap();
+		wrpr.fetchElement(Pg_explore.btn_printServiceReport).tap();
 
 		try {
 			if (init.driver.findElement(By.xpath("//*[@class = 'content'][contains(.,'" + woNum + "')]")) != null) {
@@ -142,7 +142,7 @@ public class FSATest_2 {
 		}
 		wrpr.takeScreenShotWrapper();
 
-		wrpr.fetchElementWrapper(Pg_explore.btn_report_done).click();
+		wrpr.fetchElement(Pg_explore.btn_report_done).click();
 		
 		init.driver.rotate(ScreenOrientation.LANDSCAPE);
 		init.driver.rotate(ScreenOrientation.PORTRAIT);
@@ -185,53 +185,53 @@ public class FSATest_2 {
 
 		wrpr.takeScreenShotWrapper();
 
-		wrpr.fetchElementWrapper(Pg_calendar.btn_calendar).tap();
+		wrpr.fetchElement(Pg_calendar.btn_calendar).tap();
 
-		wrpr.fetchElementWrapper("//div[contains(.,'" + woNum + "')]/div[@class='sfmevent-location-container']").tap();
+		wrpr.fetchElement("//div[contains(.,'" + woNum + "')]/div[@class='sfmevent-location-container']").tap();
 
-		wrpr.fetchElementWrapper(Pg_explore.btn_actions).tap();
-		wrpr.fetchElementWrapper(Pg_explore.btn_recordTM).tap();
-		wrpr.fetchElementWrapper(Pg_explore.btn_parts_add).tap();
+		wrpr.fetchElement(Pg_explore.btn_actions).tap();
+		wrpr.fetchElement(Pg_explore.btn_recordTM).tap();
+		wrpr.fetchElement(Pg_explore.btn_parts_add).tap();
 		wrpr.setSelectedWrapper(Pg_explore.txt_picker_search, "Starts With");
 
-		wrpr.fetchElementWrapper("//*[.='Include Online']/..//*[@type='checkbox']/..").tap();
+		wrpr.fetchElement("//*[.='Include Online']/..//*[@type='checkbox']/..").tap();
 
-		wrpr.fetchElementWrapper(Pg_explore.btn_picklist_serach).sendKeyWrapper( "BlueLake Men Watch");
-		wrpr.fetchElementWrapper(Pg_explore.btn_search).tap();
-		wrpr.fetchElementWrapper("//*[.='BlueLake Men Watch'][@class = 'x-gridcell']").tap();
+		wrpr.fetchElement(Pg_explore.btn_picklist_serach).sendKeyWrapper( "BlueLake Men Watch");
+		wrpr.fetchElement(Pg_explore.btn_search).tap();
+		wrpr.fetchElement("//*[.='BlueLake Men Watch'][@class = 'x-gridcell']").tap();
 
-		wrpr.fetchElementWrapper(Pg_explore.btn_picklist_serach).sendKeyWrapper("GE Product");
-		wrpr.fetchElementWrapper(Pg_explore.btn_search).tap();
-		wrpr.fetchElementWrapper("//*[.='GE Product'][@class = 'x-gridcell']").tap();
-		wrpr.fetchElementWrapper(Pg_explore.btn_picklist_addSelected).tap();
+		wrpr.fetchElement(Pg_explore.btn_picklist_serach).sendKeyWrapper("GE Product");
+		wrpr.fetchElement(Pg_explore.btn_search).tap();
+		wrpr.fetchElement("//*[.='GE Product'][@class = 'x-gridcell']").tap();
+		wrpr.fetchElement(Pg_explore.btn_picklist_addSelected).tap();
 
-		wrpr.fetchElementWrapper(Pg_explore.btn_travel_add).tap();
+		wrpr.fetchElement(Pg_explore.btn_travel_add).tap();
 		wrpr.setDateWrapper(Pg_explore.txt_startDateAndTime, "futureStart");
 		wrpr.setDateWrapper(Pg_explore.txt_endDateAndTime, "futureEnd");
-		wrpr.fetchElementWrapper(Pg_explore.txt_lineQty).sendKeyWrapper( "100");
-		wrpr.fetchElementWrapper(Pg_explore.txt_linePricePerUnit).sendKeyWrapper( "20");
-		wrpr.fetchElementWrapper(Pg_explore.btn_done).tap();
+		wrpr.fetchElement(Pg_explore.txt_lineQty).sendKeyWrapper( "100");
+		wrpr.fetchElement(Pg_explore.txt_linePricePerUnit).sendKeyWrapper( "20");
+		wrpr.fetchElement(Pg_explore.btn_done).tap();
 
-		wrpr.fetchElementWrapper(Pg_explore.btn_labour_add).tap();
-		wrpr.fetchElementWrapper("//*[. = 'Part']//*[@class = 'x-input-el']").tap();
-		wrpr.fetchElementWrapper(Pg_explore.btn_picklist_serach).sendKeyWrapper("BlueLake Men Watch");
-		wrpr.fetchElementWrapper(Pg_explore.btn_search).tap();
-		wrpr.fetchElementWrapper("//*[.='BlueLake Men Watch'][@class = 'x-gridcell']").tap();
+		wrpr.fetchElement(Pg_explore.btn_labour_add).tap();
+		wrpr.fetchElement("//*[. = 'Part']//*[@class = 'x-input-el']").tap();
+		wrpr.fetchElement(Pg_explore.btn_picklist_serach).sendKeyWrapper("BlueLake Men Watch");
+		wrpr.fetchElement(Pg_explore.btn_search).tap();
+		wrpr.fetchElement("//*[.='BlueLake Men Watch'][@class = 'x-gridcell']").tap();
 
 		wrpr.setSelectedWrapper(Pg_explore.btn_activityType, "Cleanup");
 		wrpr.setDateWrapper(Pg_explore.txt_startDateAndTime, "futureStart");
 		wrpr.setDateWrapper(Pg_explore.txt_endDateAndTime, "futureEnd");
-		wrpr.fetchElementWrapper(Pg_explore.txt_lineQty).sendKeyWrapper( "100");
-		wrpr.fetchElementWrapper(Pg_explore.txt_linePricePerUnit).sendKeyWrapper( "20");
+		wrpr.fetchElement(Pg_explore.txt_lineQty).sendKeyWrapper( "100");
+		wrpr.fetchElement(Pg_explore.txt_linePricePerUnit).sendKeyWrapper( "20");
 
-		wrpr.fetchElementWrapper(Pg_explore.btn_done).tap();
+		wrpr.fetchElement(Pg_explore.btn_done).tap();
 
-		wrpr.fetchElementWrapper(Pg_explore.btn_save).tap();
+		wrpr.fetchElement(Pg_explore.btn_save).tap();
 		// wrpr.fetchElementWrapper(Pg_explore.btn_yes).tap();
 
-		wrpr.fetchElementWrapper(Pg_explore.btn_actions).tap();
+		wrpr.fetchElement(Pg_explore.btn_actions).tap();
 
-		wrpr.fetchElementWrapper(Pg_explore.btn_printServiceReport).tap();
+		wrpr.fetchElement(Pg_explore.btn_printServiceReport).tap();
 
 		try {
 			if (init.driver.findElement(By.xpath("//*[@class = 'content'][contains(.,'" + woNum + "')]")) != null) {
@@ -242,7 +242,7 @@ public class FSATest_2 {
 		}
 		wrpr.takeScreenShotWrapper();
 
-		wrpr.fetchElementWrapper(Pg_explore.btn_report_done).click();
+		wrpr.fetchElement(Pg_explore.btn_report_done).click();
 		init.driver.rotate(ScreenOrientation.LANDSCAPE);
 		init.driver.rotate(ScreenOrientation.PORTRAIT);
 		

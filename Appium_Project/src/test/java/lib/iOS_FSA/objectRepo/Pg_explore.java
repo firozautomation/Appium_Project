@@ -3,13 +3,13 @@ package lib.iOS_FSA.objectRepo;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import lib.iOS_FSA.common.*;
 import lib.iOS_FSA.initiator.Initiator;
-import lib.iOS_FSA.wrapper.*;
 
 public class Pg_explore {
 
 	Initiator init = new Initiator();
-	 Wrapper wrpr = new Wrapper();
+	 Common wrpr = new Common();
 	
 //	@FindBy(xpath="//android.view.View[@content-desc='Explore']")
 //	private String btn_exploreFact = "//*[text() = 'Explore']";
@@ -22,7 +22,7 @@ public class Pg_explore {
 	public  String btn_explore = "//*[text() = 'Explore']";
 	public  String txt_search = "//input[@placeholder='Search']";
 	public  String btn_search = "//*[.='Search'][@class = 'x-button-label']";
-	public  String btn_actions = "//*[text() = 'Actions']";
+	public  String btn_actions = "//span[text()='Actions']";
 	public  String btn_newEvent = "//*[text() = 'New Event']";
 	public  String txt_startDateAndTime = "//*[contains(text(),'Start Date and Time')][@class = 'x-label-text-el']/../..//input";
 	public  String txt_endDateAndTime = "//*[contains(text(),'End Date and Time')][@class = 'x-label-text-el']/../..//input";
@@ -46,22 +46,23 @@ public class Pg_explore {
 
 	public  Pg_explore navigateToExplore() {
 		//btn_explore().click();
-		wrpr.fetchElementWrapper(btn_explore).tap();
+		wrpr.fetchElement(btn_explore).tap();
 return this;
 	}
 
 	public  Pg_explore searchForWorOrder(String searchName, String workOrderNumber) {
 		navigateToExplore();
-		wrpr.fetchElementWrapper("//*[text() = '" + searchName + "']").tap();
-		wrpr.fetchElementWrapper(txt_search).sendKeyWrapper( workOrderNumber);
+		wrpr.fetchElement("//*[text() = '" + searchName + "']").tap();
+		wrpr.fetchElement(txt_search).sendKeyWrapper("");
+		wrpr.fetchElement(txt_search).sendKeyWrapper(workOrderNumber);
 		return this;
 
 	}
 
 	public  Pg_explore searchAndSelectWorOrder(String searchName, String workOrderNumber) {
 		searchForWorOrder(searchName, workOrderNumber);
-		wrpr.fetchElementWrapper(btn_search).tap();
-		wrpr.fetchElementWrapper("//*[@class='x-gridcell sfmsearch-grid-cell']//*[contains(.,'" + workOrderNumber + "')]").tap();
+		wrpr.fetchElement(btn_search).tap();
+		wrpr.fetchElement("//*[@class='x-gridcell sfmsearch-grid-cell']//*[contains(.,'" + workOrderNumber + "')]").tap();
 		return this;
 
 	}
@@ -69,16 +70,18 @@ return this;
 	public  Pg_explore createEvent(String searchName, String workOrderNumber, String startDate, String endDate, String Subject) {
 		searchAndSelectWorOrder(searchName, workOrderNumber);
 
-		wrpr.fetchElementWrapper(btn_actions).tap();
-		wrpr.fetchElementWrapper(btn_newEvent).tap();
+		
+		wrpr.fetchElement(btn_actions).tap(true);
+		
+		wrpr.fetchElement(btn_newEvent).tap();
 		wrpr.setDateWrapper(txt_startDateAndTime, startDate);
 
 		wrpr.setDateWrapper(txt_endDateAndTime, endDate);
-		wrpr.fetchElementWrapper(txt_subject).sendKeyWrapper( Subject);
-		wrpr.fetchElementWrapper(btn_save).tap();
+		wrpr.fetchElement(txt_subject).sendKeyWrapper(Subject);
+		wrpr.fetchElement(btn_save).tap();
 
-		if (wrpr.fetchElementWrapper(btn_yes) != null) {
-			wrpr.fetchElementWrapper(btn_yes).tap();
+		if (wrpr.fetchElement(btn_yes) != null) {
+			wrpr.fetchElement(btn_yes).tap();
 		}
 		return this;
 
